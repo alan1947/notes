@@ -1,0 +1,39 @@
+PROJECT
+-------
+
+create table for procedure
+
+
+CREATE TABLE dbo.config_srcfileNames (
+    FileName VARCHAR(255) NOT NULL,
+    TargetTableName VARCHAR(255) NOT NULL
+);
+
+
+INSERT INTO dbo.config_srcfileNames (FileName, TargetTableName)
+VALUES 
+('file1.csv', 'DeathsInUKAndIndia'),
+('file2.csv', 'AllOverDeaths'),
+('file3.csv', 'CountryWiseResponseMeasure'),
+('file4.csv', 'HospitalAdmissions'),
+('file5.csv', 'Testing');
+
+
+
+CREATE PROCEDURE dbo.sp_GetConfigSrcFileNames
+AS
+BEGIN
+    SELECT FileName, TargetTableName
+    FROM dbo.config_srcfileNames;
+END;
+
+
+datasets
+
+create dataset for folder
+
+
+create procedure 
+create table
+create lookup
+ 

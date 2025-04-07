@@ -1,0 +1,74 @@
+task 1
+----
+string, bigint, double
+
+tasks
+------
+static and dynamic partitioning using courses
+do bucketing based on age
+
+indexing join 
+
+partitioning
+============
+
+partitioning in hive involves splitting the data into separate parts based on the value of one or more columns
+
+each partition corresponds to specific value of partitioning column and is stored as a separate subdirectory in hdfs
+
+CREATE TABLE student_partitioned1(
+age varchar(100),
+gender varchar(100),
+name varchar(100),
+roll varchar(100),
+marks varchar(100),
+email varchar(100))
+Partitioned by (course varchar(100))
+row format delimited fields terminated by ',' ;  
+
+same query in the case of both static and dynamic partitioning
+
+Benefits
+========
+Improved query performance 
+efficient data management
+cost efficiency
+
+static partitioning
+--------------------
+you manually have the option to specify the partition values when loading the data into the table
+this is useful when you know the values in advance
+
+if you want to create a static partitioning, 
+
+while loading no map reduce job
+but if you are creating the table and inserting it by ctas then it will run a map reduce job giving us the desired output
+
+Insert into table student_partitoned
+Partition(course='folder_name')
+select age, gender, name, roll, marks, email
+from base_table_name
+where course='course_name';
+
+in the partition you can give whatever you want its just for the hdfs directory name
+
+
+
+
+
+
+
+Dynamic partitioning
+--------------------
+hive automatically determines the partition values based on the data being inserted
+this is useful when you have a large number of partitions and dont want to manually specify each one 
+
+SET hive.exec.dynamic.partition = true;
+SET hive.exec.dynamic.partition.mode = nonstrict;
+
+INSERT INTO TABLE student_partitioned1
+PARTITION (course)
+SELECT age, gender, name, roll, marks, email, course
+FROM base table_name;
+
+include all table including the course hive will do everything automatically

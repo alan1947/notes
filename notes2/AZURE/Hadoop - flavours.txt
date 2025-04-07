@@ -1,0 +1,13 @@
+Hadoop
+-------
+
+we can execute mapreduce jobs using jar files or create our own jar file using eclipse
+
+apache scoop, hype, hbase, pig, flume, kafka, flink
+
+connect to MySQL with sqoop
+
+sqoop list-tables --connect jdbc:mysql://hostname:port/database_name --username your_username --password your_password
+
+ 
+

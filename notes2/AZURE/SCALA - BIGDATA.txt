@@ -1,0 +1,80 @@
+SCALA
+------
+
+case class - Immutable class
+
+var - declare a mutable variable
+
+val - declare an immutable variable
+
+Higher order functions - take fun as i/p and gives fun as o/p
+
+object - singleton object declaration
+
+
+PARTITIONS
+-----------
+
+Partitioning in Hive is a method to divide a large table into smaller, more manageable pieces based on the values of one or more columns. Each partition corresponds to a sub-directory in the table's directory on HDFS (Hadoop Distributed File System).
+
+static
+======
+
+In static partitioning, you manually specify the partition column values when loading data into the table. For example, if you have a table partitioned by year, you need to specify the year value for each data load operation.
+
+
+CLUSTERING
+-----------
+
+is a technique to further divide data within a partition into more manageable files. It uses a hash function on the bucketing column to distribute the data into a fixed number of buckets. Each bucket is stored as a file within the partition's directory. Bucketing is particularly useful for optimizing joins and sampling data.
+
+
+DIFFERENT FILE FORMATS IN HDFS
+------------------------------
+
+text/csv, json, avro - row based, sequence, orc - optimized row columnar, parquet - column based
+
+sequence files - it is an efficient binary file format used to store data in key - value pairs = for efficient storage and it is optimized with mapreduce
+
+
+difference between read and readstreaming
+json file handling
+no schema - stirng
+cache and persist - intermediate results for performance tuning
+sql - sorting, removing null values
+py - oops, exception handling
+for loop -two types
+adlf,adf,synapse,spark runtime, blob storages, tiers, file shares
+azure monitor - trobuleshoo
+cap theorem
+kafka
+pig,scala(optional) 
+pyspark - everything
+
+DATAFRAME TOPICS
+-----------------
+
+cache and persist option in df
+how to handle null values in df
+how to convert df into rdd
+how to work with joins
+how to work with pivot and unpivot in df
+
+Apache Flume and Apache kafka - for ingesting unstructured data from various sources 
+
+CAP THEOREM
+------------
+
+Consistency (C): All computers in the system see the same data at the same time. If you write data to one computer, all other computers will immediately see that change.
+
+Availability (A): Every request to the system gets a response, even if some of the computers are down. The system is always up and running.
+
+Partition Tolerance (P): The system continues to work even if there are communication problems between the computers. It can handle network failures.
+
+FLUME
+-----
+
+distributed service for efficiently collecting aggregating and moving large amounts of data to a centralized storage like hdfs
+
+SOURCE -> CHANNEL -> SINK
+

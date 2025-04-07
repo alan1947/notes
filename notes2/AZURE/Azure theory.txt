@@ -1,0 +1,137 @@
+server message block
+network file system
+
+azure resource manager
+azure service health
+
+Microsoft entra id
+------------------
+is a comprehensive cloud-based identity and access management service provides sso(single sign on) and mfa to help users working either in the premises or remotely, also conditional access according to the user location or risk leverl, role based access, define users in entra id.
+
+
+Log Analytics workspace 
+------------------------
+in Azure is a centralized data store where you can collect, manage, and analyze log data from various sources, including Azure and non-Azure resources. Here are some key features.
+
+Microsoft sentinel
+------------------
+Cloud native service. It helps orgs to detect, investigate and respond to security threats across entire enterprise, easily integrate with Microsoft products and third party solutions, the data it collects is stored in log analytics workspace. 
+
+DDoS
+----
+To protect against bot attacks, full monitoring, response team available
+
+CLI
+------
+Dedicated command line tool for interacting with azure
+
+POWERSHELL
+----------
+In powershel we can install azure modules and interact with azure
+
+Cloudshell
+-----------
+Tool available in azure itself to interact with azure resources can use both bash and poweshell inside browser itself, possible to mount storage if you want to persist files between sessions
+
+ARM template
+------------
+json file to deploy resources, multiple resources to deal with deleting and deploying again and again for testing purposes (bicep and terraform)
+
+Blueprint
+---------
+in this you will specify all resources and user based acces control, policies etc into a blueprint and apply to new subscriptions 
+
+Azure Traffic Manager
+----------------------
+dns based load balancer to route traffic across different locations
+priority routing method
+weighted routing method(50% location 1 50% location 2)
+
+Azure Logic Apps
+-----------------
+automate workflows and processes
+Azure Logic Apps is a cloud service that helps you automate and orchestrate tasks, business processes, and workflows
+
+Network Security Groups
+------------------------
+used to control inbound and outbound traffic to network interfaces, vm and subnets
+
+
+Block Blobs:
+
+Purpose: Ideal for storing text and binary data, such as documents, media files, and backups.
+Structure: Consists of blocks of data, each identified by a block ID. You can upload, download, and manage individual blocks.
+Use Case: Commonly used for streaming and storing large files.
+
+Page Blobs:
+
+Purpose: Designed for random read/write operations.
+Structure: Made up of 512-byte pages, which can be read or written individually.
+Use Case: Suitable for scenarios like virtual hard drives (VHDs) and other I/O-intensive applications.
+
+Append Blobs:
+
+Purpose: Optimized for append operations.
+Structure: Similar to block blobs but designed to support appending data to the end of the blob.
+Use Case: Ideal for logging data from applications, where new data is continuously added.
+
+Reserved pricing
+----------------
+we can commit to a long term and reduce prices
+
+Azure Kubernetes
+----------------
+ It simplifies the deployment, management, and operations of Kubernetes clusters, allowing you to run containerized applications with ease. Here are some key features and benefits of AKS:
+
+Network Security Group
+----------------------
+When we launch a virtual machine a virtual network which is a logical isolated network is provided to connect with azure resources, network interface cards (nic) connect vm and other resources to virtual network, inside virtual network we can create smaller manageable segments for better control and management, if we connect nsg to the nic of a virtual machine then we can control the inbound and outbound traffic or if we connect nsg to subnets then inbound and outbound traffic for all resources in the subnet can be controlled together.
+
+Application security groups
+---------------------------
+An extension to nsg where we group vm s when it comes to defining security policies.
+so suppose we have an app were some vm are used for web layer which is given to the users and so they are web servers then another set of vm where the application code is stored application servers and then the data base servers, so the web servers could receive traffic from the internet from many users but in case of application servers only requests are allowed from web server and in case of database only form application server so in nsg we can add the different vms allocated for different services as the location inbound or outbound traffic.
+
+Network Peering
+---------------
+to connect different networks
+
+VPN - Virtual Private Network
+-----------------------------
+companies use a virtual network gateway when they dont want to expose their public ip, example an employer who is accessing company resources from local network than company network which is not secure
+
+EXPRESSROUTE
+------------
+a service which helps you to create private connections between on premises infra and azure cloud
+
+load balancer
+-------------
+helps you to distribute incoming network traffic across different vm s
+
+Azcopy
+------
+it is a command line utility to transfer files to and from azure storages and local storage
+
+Endpoints
+----------
+this refer to network interfaces through which azure resources are accessed, in endpoint we can specify the exact service to which we want to provide access, public and private access  
+
+Azure Batch service
+--------------------
+Azure Batch is a cloud-based job scheduling service that enables you to run large-scale parallel and high-performance computing (HPC) applications efficiently. 
+
+Cost management
+---------------
+we can see current cost and prediction, service wise costs, resource groups wise costs etc.. and see the cost like in last month, week, year etc...
+
+Service Health
+--------------
+It will show you service issues, planned maintenance, health advisories, security advisories etc..
+
+Monitor service
+----------------
+collect data for your resources in azure and on permises data as well, can analyze and work on data also we can setup monitor alters for example if the cpu usage for a certain vm goes beyond a certain stage
+
+ARM
+----
+Azure Resource Manager (ARM) is the deployment and management service for Azure. It provides a consistent management layer that allows you to create, update, and delete resources in your Azure account. also rbac and logs everything

@@ -1,0 +1,12 @@
+MAPREDUCE STEPS
+----------------
+
+1.jps commands to check java 
+2. ./home/ubh01/hadoop-2.7.1/
+3.jps
+4.ls /home/ubh01/hadoop-2.7.1/share/Hadoop/mapreduce
+5.create loc file cat > input.txt
+6.hdfs dfs -mkdir /input
+7.hdfs dfs -put /home/ubh01/input.txt /input
+8.hdfs dfs -ls /input
+9.hdfs dfs -cat /input/input.txt

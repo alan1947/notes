@@ -1,0 +1,46 @@
+APACHE - HIVE
+-------------
+possible to load data from ubuntu local storage and hdfs and azure storage account
+
+In apache hive there are two types of tables are available 
+
+1. Managed table 
+
+	It is a default table 
+
+2. External table
+
+
+Partitioning and bucketing
+============
+
+Partitioning in Apache Hive is a technique used to divide a large table into smaller, more manageable parts based on the values of one or more columns, known as partition keys. This approach helps improve query performance and manageability of the data.
+
+are the concepts in apache hive to overcome from the performance issue concept 
+
+as per apache hive there are two types of partitioning are there 
+
+1. Static partitioning
+
+	 In static partitioning, you manually specify the partition column values when loading data into the table. Each LOAD DATA statement must include the partition key and its value.
+
+2. Dynamic partitioning
+
+	In dynamic partitioning, Hive automatically determines the partition values based on the data being inserted. You do not need to specify the partition key values manually.
+
+division is based on folder and column value , single column and multiple column
+
+Bucketing
+=========
+
+It is the concept that came to achieve the equal distribution of data in partitioning 
+It is the concept based out of files not folder
+Bucketing concept will work based out of hashing algorithm
+
+
+
+
+
+
+ 
+

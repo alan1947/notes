@@ -1,0 +1,50 @@
+No-SQL
+======
+
+availability - in the case of node failure if a user is trying to access data then the user will be served by the nearest node.
+
+scala, pig, join, indexing
+
+COLUMN FAMILY ORIENTED DB
+-------------------------
+ HIVE
+
+APACHE KAFKA -> EVENT HUB
+-------------
+
+Apache kafka will come under a data ingestion tool to handle the stream processing data, 
+
+sudo -i -> for root access
+mv filename newname
+wget link_of_the_file -> to download
+
+KAFKA COURSE
+-----------
+
+A messaging system is responsible for transferring data from one application to another 
+
+Two systems are available
+
+	1.Point to point 
+		messages are persisted in a queue, one or more consumers can consume the messages in the queue, but a particular message can only be consumed by a maximum of one consumer only.
+
+eg: computer to printer
+
+	2.Publish-Subscribe messaging system
+		messages are persisted in a topic, unlike point to point consumers can subscribe to one or more topic and consume all the messages in that topic. In this system message producers are called publishers and message consumers are called subscribers 
+
+eg: DTH
+
+--Originally developed by and then open sourced by linkedin
+
+--It is a distributed publish - sub messaging system with a robust queue that can handle high volume of data and enables you to pass messages from one point to another.
+
+--messages are persisted on the disk and replicated within cluster to prevent data loss.
+
+--built on top of zookeeper
+
+--uses "distributed commit log"
+
+--kafka is distributed, partitioned, replicated, fault tolerance
+
+--

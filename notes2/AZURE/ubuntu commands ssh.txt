@@ -1,0 +1,19 @@
+settings networking networking settings inbound 3306
+
+apt-get update -y
+apt-get install mysql-client -y
+MySQL -h ip -u username -p
+
+SQL SERVER CONFIGURATION
+--------------------------
+
+os level configuration windows fire wall add port for sql
+network configuration for sql everything should be in enabled state enable tcp/ip and restart
+azure level configuration
+
+
+POSTGRES SERVER CONFIGURATION
+-----------------------------
+ 
+CLIENT: pgadmin
+port - 5432

@@ -1,0 +1,96 @@
+AZURE RANDOM
+-------------
+
+Blob storage different access levels
+
+1.Anonymous access
+2.Authenticated access (Role based access)(Reader, Contributor, Owner)
+3.Access Keys
+4.Shared Access Signatures (SAS)
+5.Access Tiers (Hot, Cool, Cold, Archive) - helps to manage costs on data access frequency and retrieval needs.
+
+Anonymous access
+----------------
+
+Private - No anonymous access
+Blob - read access to blob, container metadata remains private
+Container - public read access to both blob and container
+
+
+
+Difference between standard blob account and data lake gen2
+------------------------------------------------------------
+
+In standard blob storage flat namespace is used
+No directory level are supported
+No atomic operations like rename or delete a folder
+Folder shown will just be a naming convention
+
+In ADLS hierarchical namespace is used 
+folder level operations are possible
+
+
+
+PAGE BLOBS, BLOCK BLOBS AND FILE SHARES
+---------------------------------------
+
+1.PAGE BLOBS
+
+It is made up of pages of 512 byte units that can be written from or read to separately
+Optimized for low latency, high throughput workloads
+used in databases that require frequent read/write operations or VHD for azure virtual machines
+
+2.BLOCK BLOBS
+
+Made up of blocks of 100 mb units that can be managed separately
+Designed for storing large amounts of unstructured data 
+Blocks are assembled into a single blob
+Storing images, videos, logs, backups etc.., serving static content
+
+3.FILE SHARES
+
+Designed for shared file storage that can be concurrently accessed by multiple clients or applications
+Uses SMB(Server Message Block Protocol) which make it compatible with both windows and Linux
+
+
+INTEGRATION RUNTIMES
+----------------------
+
+AUTO RESOLVING INTEGRATION RUNTIME
+
+Azure Integration Runtime
+Self-Hosted Integration Runtime
+Azure-SSIS Integration Runtime.
+
+
+Data Explorer Pools
+--------------------
+in Azure Synapse Analytics are a type of runtime specifically for managing compute resources for Azure Data Explorer.
+
+
+WHILE USING SYNAPSE SERVERLESS POOL
+-----------------------------------
+
+OPENROWSET is working - it is a function used for Ad-Hoc querying - on the fly querying or querying without the  creation of schema or infra management.
+
+Creation of external table won't work in the case of master db you have to create another db
+
+After creating another db external table is created
+
+Creation of internal table is not supported
+
+
+
+Apache Airflow
+--------------
+Workflow management tool for authoring, scheduling, and monitoring workflows.
+uses Kubernetes, celery as runtimes
+
+
+copy data tool
+--------------
+used to create one time or scheduled pipeline to load data from different sources
+
+
+ 
+

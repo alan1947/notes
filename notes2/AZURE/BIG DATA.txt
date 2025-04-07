@@ -1,0 +1,112 @@
+BIG DATA
+---------
+---------
+
+
+In data warehousing elt or etl is mandatory but in big data data can be dealt with its row form itself
+schema on write and schema on read
+
+bulk loading
+schema on read - everything is auto created, least no of errors
+
+schema on write - we will define columns and datatypes in case of datatype mismatch null will be created won't show any error
+
+HADOOP HISTORY
+--------------
+2002: Doug Cutting and Mike Cafarella started working on the Apache Nutch project, aiming to build a web search engine.
+2003: Google published a paper on the Google File System (GFS), providing a model for distributed storage.
+2004: Google introduced MapReduce, a programming model for processing large data sets.
+2006: The Apache community created Hadoop as an independent subproject of Lucene, named after Doug Cutting's son's toy elephant.
+2008: Hadoop became the fastest system for sorting terabytes of data, surpassing supercomputers.
+2012: Hadoop YARN was introduced, enhancing resource management and job scheduling.
+2020: Hadoop Ozone, an object store for Hadoop, was introduced.
+
+distributed computing
+
+Hadoop and spark are different
+
+vertical scaling and horizontal scaling
+
+sticky cache approach in load balancing
+
+file system - way to store and retrieve file in os
+fat16, fat32,ntfs
+
+distributed computing - other name if distributed computing mechanism in hadoop is, map reduce - its a model with rules and regulations to process the distributed data available in multiple locations (hdfs)
+
+	two phases are available mapper and reducer
+
+sources of big data - social media, machine data, transaction data 
+	
+In Hadoop Three different versions are available
+
+	hadooop version 1
+		The entire architecture is designed with the help of java, only compatiable with java, we have 
+			hdfs version1
+				default block size is 64 mb
+
+			map reduce version 1
+				some issues were there job failure and job restarting criteria
+
+	Hadoop version 2
+		hdfs version2
+			default block size is 128 mb
+			two types of distributed computing models are available map reduce2 and yet another resource negotiator (YARN) 
+			resource management, application management, node managementt
+		
+	hadoop version 3
+
+how to store and retrieve file in hdfs file system ?
+how to run the sample map reduce job with the help of jar files ?
+
+Apache sqoop, apache hive, apache hbase, apache pig, apache flume, apache kafka
+
+
+
+HDFS - Detailed (2.0)
+---------------------
+file system created to manage distributed volume in Hadoop environment
+default block size is 128 mb
+if store a data of size as of 500 after storing it in 3.9 blocks the remaining space in the last block in left unutilized 
+
+how the hdfs will handle the read and write operation
+how to read the data 
+how to write the data 
+how hdfs handles acknowledgement
+
+As hdfs in distributed in nature, it will be divided into master and slaves deamons(process)
+
+two deamons are available in hdfs - name node and data node
+
+	name node
+		mainly for maintaining the metadata for your data information
+		it will maintain the liveness of the data nodes - from data node it will send messages (ping) data nodes ping timing, grace timing - 1o min, 		heartbeat - 3 sec
+
+		it is not possible to save actual data in the NameNode. The NameNode is designed to store metadata
+
+	data node
+		main work of data node is it will store the actual data, it need to send the heartbeat to the name node duration (3 s)
+
+Checksum
+	 Checksum helps detect and correct data corruption that might occur during storage or transmission.
+
+read operation and write, acknowledgement operation pipeline
+
+
+
+HDFS REPLICATION FACTOR
+-----------------------
+In hdfs version 2.0 replication factor is 1+2 ex: 1 peta bype will be converted in to 3 pb
+this replication factor is handled by rack awareness algorithm
+
+In version 3.0 for replication purposes erasure algorithm
+
+
+HDFS FILE MANAGEMENT
+---------------------
+
+
+
+
+
+

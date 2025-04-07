@@ -1,0 +1,33 @@
+referential integrity
+fact, dimension
+schemas
+scd s
+azure integration runtime
+ssis (SQL Server Integration Services)
+on premise
+capex, opex
+etl - data integration process, datafactory
+loop pipeline, monitor, schedule pipeline, triggers
+first landing 
+difference in get metadata and lookup
+row function or window functions
+versioning
+debug runtime
+rank in sql
+top 10 rows
+2 nd row
+last 20 rows
+select inside select
+NSG
+azure active directory
+3 tier architecture in dbms(external, conceptual, internal)
+phases of dbms design
+server client architecture of dbms
+data structures used in databases(table, index, view, schema)
+dimensional modelling (Dimensional modeling is a design technique used in data warehousing to optimize data retrieval and analysis. It involves organizing data into fact and dimension tables)
+stages of data model(conceptual, logical, physical)
+clustered, non-clustered, covering index
+operational system (oltp) -> ods (operational data store) -> data warehouse
+reports, dashboards, scorecarding
+
+

@@ -1,0 +1,72 @@
+HADOOP - CORE
+---------------
+
+map -> shuffle -> reduce.
+
+It is a computational model in Hadoop.
+
+map reduce core functions are defined as java libraries we can use them to create different map reduce jobs like word count or compute the value of pi, it is possible to create individual programs for this processes but it would not be scalable, so the whole point of using map reduce job is scalability.
+
+In your system if you install Hadoop every nodes will be in a single system there is no distributed storage and processing because your system is the only node available to Hadoop.
+
+If you want multi-node Hadoop you have to have multiple local or virtual machines connected to a single virtual network and ssh connection established between them.
+
+Then you have to specify the master node (name node and resource manager node) and slave nodes (data node and task manager node) in the configuration of Hadoop. It is recommended to have master and slave in different nodes to have better scalability and performance but configuring the same node as a name node and data node is also possible (can be done for testing purposes).
+
+
+CLIENT NODE
+-----------
+
+Submits jobs to the ResourceManager. Monitors job progress. Fetches results after job completion.
+
+MASTER
+-------
+
+NAME NODE ->  Manages the metadata and directory structure of the Hadoop Distributed File System (HDFS). It keeps track of which blocks of data are stored on 		which DataNodes.
+
+RESOURCE MANAGER -> Manages the allocation of resources (CPU, memory) for running applications in the cluster(yarn).
+
+APPLICATIONMASTER -> Manages the execution of a specific application (e.g., a MapReduce job). Requests resources from the ResourceManager.
+Coordinates the execution of tasks.
+
+STANDBY NAMENODE -> Backup for namenode
+
+
+
+SLAVE
+------
+
+DATA NODE -> Stores the actual data blocks in HDFS and serves read/write requests from clients.
+
+NODE MANAGER ->  Manages the execution of tasks on the node and monitors resource usage.
+
+TEST TRACKER -> Manages the execution of map and reduce tasks.
+
+JOB TRACKER(MapReduce v1) -> Manages MapReduce jobs, including resource management and task scheduling.
+
+RECORD READER -> Converts input splits into key value pairs for mapper 
+
+
+
+SERIALIZATION IN HADOOP
+------------------------
+The writable interface in Hadoop will serialize data after splitting data to byte stream to be sent to different nodes for map and reduce jobs
+
+Deserialization will also happen to deserialize bytestream to data.
+
+Shuffle - means sending data from one node to another for different tasks and it will be sorted in the node where the reduce task is taking place
+
+HADOOP DATA FLOW
+----------------
+
+Production Cluster:
+Multiple Client Nodes
+    |
+    v
+Master Node (ResourceManager, ApplicationMaster)
+    |
+    v
+Slave Nodes (NodeManager, DataNode)
+
+
+

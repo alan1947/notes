@@ -1,0 +1,16 @@
+SYNAPSE ANALYTICS
+-----------------
+
+PAAS oriented data warehousing concept
+default runtime pool
+serverless pool
+run time will be created along with your synapse workspace
+second run time is dedicated sql pool 
+the efficiency of your dedicated sql pool depends on no of data warehousing units
+apache spark pool this run time is basically available for big data workload supported synapse analytics
+data explorer this run time is basically for complex unstructured data or log related analytical works
+integration runtime this runtime is used for designing for preview the data in etl and elt pipelines
+
+azure synapse analytics is a fully managed service to build modern data warehouses to enterprises
+
+medallion architecture 

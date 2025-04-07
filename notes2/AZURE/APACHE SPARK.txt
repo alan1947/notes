@@ -1,0 +1,363 @@
+APACHE SPARK
+-------------
+
+Apache Spark is an open-source, distributed computing system designed for big data processing and analytics. It provides an interface for programming entire clusters with implicit data parallelism and fault tolerance.
+
+Spark can be used with storages like block based or file based or if you want to connect to any cloud based storage also it will be possible by default.
+
+Hadoop is suitable for systems when speed is not a problem and cost is a concern and disk based processing is ok.
+
+SPARK COMPONENETS
+-----------------
+
+Spark core -  It is a foundation of spark framework. spark provides basic functionalities like task scheduling, 	memory recovery and distributed data storage.
+
+
+Spark sql - It is a model for working with structured and semi structured data using sql queries. It provides the 	data frame api for querying the structured data;. It supports sql, hive and external directories. it can 	process the data stored in json, parquet, orc. 
+
+Spark streaming - It enables the real time data processing by dividing data streams into small batches (micro 	batches) . It will be helpfull for real time analytics such as log monitoring and fraud detection and 	all.It works will multiple processing streams like flume,kafka,hdfs and other sources directly.
+
+SPARK CORE
+----------
+1.RDD - Resilient Distributed Dataset
+
+	It is a primary abstraction in spark it represents an immutable distributed collection of objects that can be processed in parallel across a cluster
+
+key features of rdd
+-------------------
+
+-resilience
+-it is fault tolerant because rdd s can rebuild lost data using lineage graph
+-data is distributed across multiple nodes in the cluster, it will enable the parallel processing feature 
+-immutability
+	once rdd is created rdd s can't be changed but we can create a new rdd or overwrite an existing rdd
+
+-lazy evaluation
+	rdd transformations are not executed directly, they are only executed when action commands like collect() 	and count() is called.
+
+-partitioning
+	rdd s are split into logical partitions and processing happens on this in parallel
+
+	
+2.DAG - Directed Acyclic Graph
+
+	stands for directed acyclic graph which tells you the communication between user and the cluster and task 	coordination across the cluster. 
+
+RDD
+-----
+
+the default behavior of text file importing in case of RDD
+
+-while importing rdd is default output format is array
+-it will consider each and every element as one object in array
+-default data type is string
+
+map
+flatmap
+
+	work inside an object 
+	
+filter
+
+what are the components of spark ecosystem ?
+
+spark core - foundation of spark platform, handles i/o task scheduling, mem management, fault recovery
+spark sql - for querying structured data 
+spark streaming - for real time data processing (input from kafka and flume) 
+MLib - for scalable ml algos
+graphx - for graph processing and analytics
+
+what is spark sql ?
+
+map and flatmap difference ?
+
+map - transforms each element of a collection individually
+flatmap - flattens one level of nested structure
+
+Difference between Groupbykey and orderbykey ?
+
+The groupByKey function in Spark is a transformation operation on a key-value RDD (Resilient Distributed Dataset) that groups the values for each key. It returns a new RDD where each key is associated with an iterable collection of its corresponding values.
+
+The reduceByKey function in Spark is a transformation operation on a key-value RDD that groups the values for each key and then applies a reduction function to the values of each group. It returns a new RDD where each key is associated with a single reduced value.
+
+groupByKey: Groups values for each key into an iterable collection.
+reduceByKey: Groups values for each key and reduces them using a specified function.
+
+groupByKey: Can be memory-intensive and involves shuffling all values across the network, which can be inefficient for large datasets.
+reduceByKey: More efficient for large datasets as it performs local aggregation before shuffling, reducing the amount of data transferred across the network12.
+
+accumulators and broadcast variables ?
+
+Accumulators are special variables in Spark used for aggregating information across multiple tasks. They are particularly useful for counting events or collecting statistics.
+
+Broadcast variables are read-only shared variables that are cached and available on all nodes in a cluster. They are used to efficiently distribute large read-only data to all worker nodes, reducing communication costs.
+
+what is parallelize ?
+
+It is a method provided by SparkContext to create an rdd from an existing collection
+
+concept of dag ?
+
+It is a sequence of computaion stages represented as a graph
+It models the execution plan of a spark job
+
+What is rdd ?
+
+It is an immutable, resilient, distributed collection of objects that can be processed in parallel across a cluster
+
+what is spark core ?
+
+It is the execution engine of spark which takes care of task scheduling, memory management, fault recovery etc..
+
+what is an action ?
+
+Action is an operation which triggers the execution of all the lazy transformations applied on rdd,dataframe. collect(),count(),saveAsTextFile()
+
+why rdds are immutable ?
+
+actually each rdd is a snapshot of the transformation done, fault tolerance via lineage, simplified distributed computation, debugging, optimization
+
+why transformations are lazy ?
+
+they are not executed when you call them immediately, instead they are recorded as a plan (DAG) and only executed when an action is called
+
+what is in memory processing ?
+
+storing and processing data in ram insted of writing to disk during computation
+
+Explain the architecture of spark ?
+
+Driver Program (master node) - converts user code into dag for execution
+Cluster Manager Manages and allocates resources for the cluster
+Executors(worker node) - responsible for execution of tasks and storage of data
+
+How does spark handle fault tolerance (lineage) ?
+
+spark stores the record of all the transformations known as lineage, whenever a part of rdd is lost it will recompute only the lost partitions from original data
+
+Explain different transformations in spark ?
+
+map,flatMap,filter,distinct,groupByKey,reduceByKey,coalesce,repartition
+
+Difference between gbk and rbk ?
+
+groups all values with the same key
+gpby - slow
+rdby - fast
+
+How to optimize a spark job ?
+
+-use orc/parquet file formats - read efficient
+-use cache(), persist()
+-use reducebykey rather than groupbykey(cause much more shuffling) for optimized performance
+-use repartition(),colaese() for increase decrease partition
+
+what is caching in spark ?
+
+storing immediate data in dataframe,rdd to access faster, when multiple actions are performed on the same data cache(), persist()
+
+How does spark differ from Hadoop and what are it's major features ?
+we deal with semi and unstructured data
+
+Distribution and Instrumentation ?
+
+Spark distributes data across a cluster of nodes to parallelize processing. When you create an RDD (Resilient Distributed Dataset) or DataFrame, Spark splits the data into partitions, which are distributed across the nodes in the cluster.
+Partitioning: Each partition is processed independently by a task. The number of partitions can be controlled to optimize performance.
+Shuffling: During operations like groupByKey or reduceByKey, data may need to be redistributed across the cluster. This process is called shuffling and involves moving data between nodes to ensure that all data for a particular key is on the same node.
+
+Spark streaming ?
+
+Spark Streaming is a powerful extension of the core Spark API that enables scalable, high-throughput, fault-tolerant stream processing of live data streams. Two common types of input sources in Spark Streaming are file streaming and port streaming.
+
+input sources
+
+File Streaming involves monitoring a directory for new files and processing them as they arrive. This is useful for batch processing of log files, data dumps, or any other file-based data sources. (CSV file)
+
+Port Streaming involves receiving data over a network socket. This is useful for real-time data feeds, such as sensor data, logs, or any other data that can be sent over a network. (Input from TCP socket)
+
+Connect with kafka - high latency, low throughput
+
+Summarizing data ?
+
+pivot - convert row into column
+
+Rollup - is used to perform hierarchical aggregation, allowing you to summarize data at multiple levels of granularity. It creates subtotals and a grand total.
+
+	Example: Using the same sales data, you want to summarize the total sales by product category and region, including subtotals for each product 	category and a grand total.
+
+Cube - Cube is similar to rollup but performs aggregation across all combinations of the specified dimensions. It creates a comprehensive summary that includes all possible subtotals and the grand total.
+
+File System Metadata Storage
+----------------------------
+Metadata in HDFS includes information about the file system's structure, such as the directory tree, file permissions, and the mapping of data blocks to files. This metadata is crucial for the operation of HDFS and is managed by the NameNode.
+
+fsimage
+--------
+fsimage is a file that contains a snapshot of the entire file system's metadata at a specific point in time. It includes the complete directory structure and details about the location of data blocks on DataNodes.
+
+Edilog
+--------
+EditLog is a transaction log that records every change made to the file system's metadata since the last fsimage snapshot. This includes operations like file creation, deletion, and replication changes.
+
+Partitioners
+------------
+Partitioners control the partitioning of the intermediate map output keys. The partitioning determines which reducer will process which key-value pairs.
+
+Combiners
+-----------
+Combiners are mini-reducers that run in the map phase to perform local aggregation of the intermediate outputs. They help reduce the amount of data transferred to the reducers, improving the efficiency of the MapReduce job.
+
+Distributed cache
+------------------
+Combiners are mini-reducers that run in the map phase to perform local aggregation of the intermediate outputs. They help reduce the amount of data transferred to the reducers, improving the efficiency of the MapReduce job.
+
+Joining Techniques in Map Reduce
+--------------------------------
+
+Reduce side join
+Map side join
+Broadcast join
+
+
+
+Design Patterns
+---------------
+
+Summarization Patterns
+	Aggregating numerical data, such as calculating sums, averages, etc.
+
+Filtering patterns
+	Removing unwanted data from the dataset.	
+
+Join patterns
+	Joining datasets in the reducer.
+
+Instrumentation
+--------------- 
+spark provides web UI, metrics and accumulators to monitor and instrument applications, optimize performance
+
+
+DATAFRAMES
+==========
+
+SPARK SQL
+---------
+
+Spark sql is a module in apache spark designing structured module 
+
+it provides a programming abstraction called dataframe and also dataframe serve as distributed sql query engine 
+spark sql allows users to query data using either sql or dataframe 
+
+HOW TO USE SELECT OPTION WITH DATAFRAME
+=======================================
+
+HOW TO USE WITHCOULUMN
+======================
+
+WITH COLUMN RENAME ALIAS
+=========================
+
+# Databricks notebook source
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, lit
+spark = SparkSession.builder.appName("Spark DataFrames").getOrCreate()
+ 
+# COMMAND ----------
+ 
+df = spark.read.options(header='True', inferSchema='True').csv('/FileStore/tables/StudentData.csv')
+df.show()
+ 
+# COMMAND ----------
+ 
+df = df.withColumnRenamed("gender","sex").withColumnRenamed("roll", "roll number")
+df.show()
+ 
+# COMMAND ----------
+ 
+df.select(col("name").alias("Full Name")).show()
+ 
+# COMMAND ----------
+ 
+df.show()
+
+
+HOW TO USE FILTER
+=================
+
+# Databricks notebook source
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, lit
+spark = SparkSession.builder.appName("Spark DataFrames").getOrCreate()
+ 
+# COMMAND ----------
+ 
+df = spark.read.options(header='True', inferSchema='True').csv('/FileStore/tables/StudentData.csv')
+df.show()
+ 
+# COMMAND ----------
+ 
+df.filter(df.course == "DB").show()
+ 
+# COMMAND ----------
+ 
+df.filter(col("course") == "DB").show()
+ 
+# COMMAND ----------
+ 
+df.filter( (df.course == "DB") & (df.marks > 50) ).show()
+ 
+# COMMAND ----------
+ 
+courses = ["DB", "Cloud", "OOP", "DSA"]
+df.filter(df.course.isin(courses)).show()
+ 
+# COMMAND ----------
+ 
+df.filter(df.course.startswith("DS")).show()
+ 
+# COMMAND ----------
+ 
+df.filter(df.name.endswith("se")).show()
+ 
+# COMMAND ----------
+ 
+df.filter(df.name.contains("se")).show()
+ 
+# COMMAND ----------
+ 
+df.filter(df.name.like('%s%e%')).show()
+
+
+DATAFRAME TOPICS
+-----------------
+
+cache and persist option in df
+how to handle null values in df
+how to convert df into rdd
+how to work with joins
+how to work with pivot and unpivot in df
+
+IAAS
+----
+
+Azure provides raw infra like vm,storage,networking - you manage os,middleware,apps eg: vm,blob storage
+
+PAAS
+----
+
+provides platform for application development where you manage code and data - everything else azure takes care of - Eg: Azure functions or azure sql database functions
+
+SAAS
+----
+
+software you can use without worrying about infrastructure - eg: 365
+
+  
+
+
+
+
+
+
+
+

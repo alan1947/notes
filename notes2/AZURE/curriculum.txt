@@ -1,0 +1,71 @@
+curriculum
+--------------
+
+data engineering topics in cloud
+how to deploy in cloud
+
+AZ 900 - cloud based administration work, creating pipelines, basic knowledge   
+DP 900 - everything, warehouse, etl, cloud 
+
+relational db
+------------
+
+Microsoft sql
+maria db
+postgress
+
+non relationsl db
+------------------
+
+cosmo db
+
+data warehouse
+----------------
+
+azure synapse analytics
+
+etl tool
+---------
+
+azure data factory
+
+dp 900/dp 203 - main topics on interview point of view 
+
+
+OPEX CAPEX CLOUD - definition
+----------------
+
+cost and security, on demand and pay per second billing, auto scaling and load balancing
+
+Cloud Computing in Terms of CapEx and OpEx
+CapEx (Capital Expenditures): In traditional IT infrastructure, CapEx involves significant upfront investments in physical hardware like servers, storage systems, and networking equipment. These assets are owned and managed by the company, and their costs are depreciated over time1.
+
+OpEx (Operational Expenditures): Cloud computing shifts the financial model towards OpEx. Instead of purchasing hardware, companies pay for cloud services on a subscription or pay-as-you-go basis1. This means lower initial costs and greater flexibility, as expenses are based on actual usage and can be scaled up or down as needed.
+
+VMware History
+VMware was founded in 1998 by Diane Greene, Mendel Rosenblum, Scott Devine, Ellen Wang, and Edouard Bugnion in Palo Alto, California. The company's first product, VMware Workstation, was released in 1999, allowing users to run multiple operating systems on a single physical machine.
+
+In 2001, VMware entered the server market with VMware GSX Server (hosted) and VMware ESX Server (host-less). The company was acquired by EMC Corporation in 2004 for $625 million. Later, Dell Technologies acquired EMC in 2016, and VMware continued to grow as a leading provider of virtualization software.
+
+In 2023, Broadcom acquired VMware for $69 billion, aiming to expand its multicloud strategy. VMware has since transitioned to a subscription-based pricing model under Broadcom's ownership.
+
+
+TYPES OF CLOUD
+----------------
+
+private cloud
+hybrid cloud
+public cloud
+
+AZ 900 - UPTO SECTION 3
+
+AZURE
+-----
+always think it in a client server model 
+server - remote machine
+client - local machine
+
+remote desktop application
+
+well known port numbers
+
