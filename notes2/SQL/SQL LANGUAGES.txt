@@ -1,0 +1,74 @@
+SQL LANGUAGES
+-------------
+
+DDL
+---
+define and manage database structures 
+
+always use table tablename
+
+CREATE
+ALTER
+DROP
+TRUNCATE
+RENAME
+
+DML
+-----
+
+to manipulate data inside the table
+
+Directly use tablename
+
+Eg;
+
+insert into employees
+update employees set
+delete from employees
+
+SELECT 
+INSERT
+UPDATE
+DELETE
+
+DCL
+-----
+
+GRANT
+______
+
+In this example, the user "JohnDoe" is granted the privileges to SELECT and INSERT data into the "Employees" table.
+
+GRANT SELECT, INSERT ON Employees TO JohnDoe;
+
+REVOKE
+_______
+
+REVOKE SELECT, INSERT ON Employees FROM
+
+TCL
+-------
+
+COMMIT
+______
+
+To save transactions permanently
+
+ROLLBACK
+_________
+
+To rollback to a certain savepoint
+
+SAVEPOINT
+__________
+
+Used to go back to certain points like doing undo
+
+SET TRANSACTION
+________________
+
+
+
+
+
+

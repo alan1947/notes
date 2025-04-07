@@ -1,0 +1,15 @@
+DATE FUNCTIONS
+---------------
+
+CURDATE() -> returns current date
+CURTIME()
+NOW() -> returns current date and time
+year(),month(),day(),week(),dayname(),dayofyear() -> used to extract the same from above functions or dates
+
+select month(date_add('2024-01-15',interval 30 month)) as newmonth;
+
+like the above example date_sub('date',interval )
+
+date_add(), date_sub(),datediff('date','date') -> returns the no of days between these dates
+
+select timestampdiff(year,'date',curdate()) as age for age

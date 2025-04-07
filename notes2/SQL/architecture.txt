@@ -1,0 +1,7 @@
+Medallion Architecture
+
+snow flake schema
+galaxy schema
+star schema
+
+cubes

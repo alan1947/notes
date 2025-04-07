@@ -1,0 +1,24 @@
+GROUP BY
+---------
+after where
+
+Specially used with aggregate functions
+
+max, min, avg, count, sum
+
+
+Assume the admissions table has the following data:
+
+the below table is constructed using group by to show doctors assigned for each patient id
+
+attending_doctor_id	patient_id
+1			101
+1			102
+2			103
+2			104
+2			105
+
+ORDER BY
+-----------
+ arrange in ascending order or descending order
+

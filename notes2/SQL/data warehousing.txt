@@ -1,0 +1,15 @@
+structured
+unstructured 
+semi structured
+
+
+web application
+mob app
+
+two kinds of applications
+--------------------------
+stateless and stateful application
+
+scd1, scd2
+types of bulk loading
+

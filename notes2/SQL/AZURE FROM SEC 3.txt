@@ -1,0 +1,161 @@
+AZURE FROM SEC 3
+-----------------
+
+
+VIRTUAL NETWORK
+---------------
+
+to create isolated network to launch resources over cloud
+
+if we create virtual network and deploy vm s in that network private ips will be assigned to each machine for communication which is actually default 
+
+suppose if we create an ubuntu vm and installed nginex server inside it as long as you dont define an inbound port accessing the website through its public ip wont work but if there is another vm in the same network it will be able to access the site through its physical ip as both are in same network. 
+
+NETWORK SECURITY GROUPS - NSG - Virtual firewall
+-----------------------------
+
+already ssh inbound connection through port 300 will be there 
+also there will be inbound access for vm in the same virtual machine
+
+APPLICATION SECURITY GROUPS - ASG
+----------------------------------
+
+suppose you have big company and you have different virtual machines for each purposes lets say a group for the web layer, another group for application layer and another group for database layer and for each group there will be differences in inbound and outbound traffic like web layer receives traffic from the internet and app layer only gets traffic from web layer and data base layer only get traffic from app layer so instead of having to define these rules for each and every vm we will group them to ASG and NSG rules will be set for each group.
+
+AZURE NETWORK PEERING
+---------------------
+
+this is to enable communication between vm s in different networks go to virtual networks -> select any networks -> peerings and add peerings according to the virtual networks we have to both ways
+
+VIRTUAL NETWORK GATEWAY
+-----------------------
+
+used to establish secure virtual network connections to azure resources
+
+AZURE EXPRESSROUTE
+------------------
+
+create private connections between on premises infra and virtual machine resources or Microsoft cloud services
+
+STORAGE SERVICES
+-----------------
+
+1.FILE BASESD STORAGE
+
+	Azure File Storage: Provides shared file storage for use with Azure Virtual Machines and on-premises clients.
+
+2.BLOCK BASED STORAGE
+
+	Azure Managed Disks: Provides block-level storage volumes for use with Azure Virtual Machines, including Standard HDD, Standard SSD, and Premium SSD options.
+
+3.OBJECT ORIENTED STORAGE
+
+	Azure Blob Storage: Optimized for storing massive amounts of unstructured data, such as text or binary data. It supports block blobs, append blobs, and page blobs.
+	
+	They will consider everything as objects. If you compare with other medium it will be much faster. There is no limitation by means of volume and max file size that is supported. This approach is max supported by cloud vendors.
+
+https://www.redhat.com/en/topics/data-storage/file-block-object-storage -> all three levels of storage
+
+Azure cloud is supported for three kinds of storage
+
+DISKS - TWO TYPES
+-----------------
+
+1.OS DISK
+
+lrs-locally redundant storage(data is replicated three times within a single datacenter)
+
+	Backup
+
+	premium ssd
+	standard ssd
+	standard hdd
+
+zrs-zone redundant storage(data is replicated to three zones in the primary region)
+
+	premium ssd
+	standard ssd
+
+grs- geo redundant storage (data will be lrs in a primary location and lrs in a secondary location)
+
+gzrs - geo zone redundant storage ( data will be zrs in primary region and lrs in secondary region)
+
+https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy
+	
+
+2.DATA DISK
+
+
+STORAGE ACCOUNTS
+----------------
+
+first create a storage account resource and select the kind of data type you want to store container, file, ...
+access levels can be modified using configuration levels
+
+hot,cool,cold,archive
+
+if the container is premium there wont be these options
+
+AZURE FILE SHARES
+ 
+	- with the help of this service files can also be cached on a local win file server to make accessibility much faster
+
+
+AZURE FILE EXPLORER
+Azcopy tool
+AZURE DATABOX - they will send you a data box disk to copy large data 
+AZURE MIGRATE - to migrate on premises database or server to azure
+
+STORAGE ACCOUNTS
+----------------
+
+PAAS responsibility model 
+
+storage account name must be unique across all the existing storage accounts
+name should be 3-24 character long only lowercase and numbers (no uppercase)
+in storage accounts service to support the redundancy azure came up with 4 plans lrs,zrs,grs,gzrs
+
+GEN 1(BLOB) AND GEN 2(DATA LAKE)
+--------------------------------
+
+hierarchical namespace
+
+BLOBS(3 types)
+--------------
+
+1.Block Blobs
+	
+	good for text and binary files 
+	can store up to 190.07 TB of data
+
+2.Append Blobs
+
+	good for blobs frequently on appending operation
+	
+3.Page Blobs
+
+	good for virtual harddrives
+	file sharing
+
+GEN 1
+-----
+
+
+
+BLOCK(64 KB TO 100 MB)
+
+	
+PAGE(FOR NORMAL FILES NOT SUPPORTED)
+APPEND(64 KB TO 4 MB)
+
+ACCESS TIERS
+------------
+HOT
+COOL(min billing 30 days)
+COLD(min billing 90 days)
+ARCHIVE(min billing 180 days)
+
+how to implement a versioning control in containers ?
+how to change the access tiers in objects?
+what is meant by acquire lease and break lease ?
+application called azure data storage explorer, install this app and check for container level private access and blob level private access ?
